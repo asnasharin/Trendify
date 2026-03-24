@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const ProductModel = require("../models/productModel");
 
 // get all reviews
-export const getAllReviews = asyncHandler(
+exports.getAllReviews = asyncHandler(
     async(req, res, next) => {
         const reviews = await ProductModel.findById(req.params.id);
 
@@ -18,7 +18,7 @@ export const getAllReviews = asyncHandler(
 )
 
 // update review
-export const createProductReview = asyncHandler(
+exports.createProductReview = asyncHandler(
     async (req, res, next) => {
 
         const { title, productId, ratings, recommended } = req.body;
@@ -73,7 +73,7 @@ export const createProductReview = asyncHandler(
 )
 
 // delete review
-export const deleteReview = asyncHandler(
+exports.deleteReview = asyncHandler(
     async( req, res, next) => {
 
         const product = await ProductModel.findById(req.query.product_id);

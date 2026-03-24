@@ -3,7 +3,7 @@ const  ProductModel = require("../models/productModel.js");
 const cloudinary = require("cloudinary")
 
 // create product
-export const createProductController = asyncHandler (
+exports.createProductController = asyncHandler (
     async (req, res) => {
         let images = [];
 
@@ -54,7 +54,7 @@ export const createProductController = asyncHandler (
 
 
 // get all product admin
-export const getAllProductsAdmin = asyncHandler(async (req, res) => {
+exports.getAllProductsAdmin = asyncHandler(async (req, res) => {
     const data = await ProductModel.find({});
 
     res.status(200).json({
@@ -66,7 +66,7 @@ export const getAllProductsAdmin = asyncHandler(async (req, res) => {
 
 
 // getall product 
-export const getAllProduct = asyncHandler(
+exports.getAllProduct = asyncHandler(
     async (req, res) => {
         try {
             const { price, category, ratings } = req.query;
@@ -104,7 +104,7 @@ export const getAllProduct = asyncHandler(
 
 
 
-export const updateProduct = asyncHandler(
+exports.updateProduct = asyncHandler(
     async (req, res, next) => {
         const product = await ProductModel.findById(req.params.id);
 
@@ -174,7 +174,7 @@ export const updateProduct = asyncHandler(
 
 
 // delete product
-export const deleteProductController = asyncHandler(
+exports.deleteProductController = asyncHandler(
     async (req, res, next) => {
         const product = await ProductModel.findById(req.params.id)
 
@@ -197,7 +197,7 @@ export const deleteProductController = asyncHandler(
 )
 
 // get product details
-export const getProductDetails = asyncHandler (
+exports.getProductDetails = asyncHandler (
     async (req, res, next) => {
         const id = req.params.id;
 

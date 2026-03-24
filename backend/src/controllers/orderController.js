@@ -56,7 +56,7 @@ exports.createOrder = asyncHandler(async (req, res) => {
 
 // get single order
 
-export const getSingleOrder = asyncHandler (
+exports.getSingleOrder = asyncHandler (
     async ( req, res, next) => {
         const order = await orderModel
         .findById(req.params.id)
@@ -75,7 +75,7 @@ export const getSingleOrder = asyncHandler (
 
 // get users all order
 
-export const myOrders = asyncHandler (
+exports.myOrders = asyncHandler (
     async (req, res, next) => {
         const orders = await orderModel.find({ user: req.user._id}) 
 
@@ -88,7 +88,7 @@ export const myOrders = asyncHandler (
 
 // getall orders admin
 
-export const getAllOrders = asyncHandler(
+exports.getAllOrders = asyncHandler(
     async(req, res, next) => {
         const orders = await orderModel.find()
 
@@ -107,7 +107,7 @@ export const getAllOrders = asyncHandler(
 
 // update order admin
 
-export const updateOrder = asyncHandler (
+exports.updateOrder = asyncHandler (
     async (req, res, next) => {
         const order = await orderModel.findById(req.params.id);
 
@@ -153,7 +153,7 @@ async function updateStock(id, quantity) {
 }
 
 // delete order
-export const deleteOrder = asyncHandler (
+exports.deleteOrder = asyncHandler (
     async (req, res, next) => {
         const order = await orderModel.findById(req.params.id)
 

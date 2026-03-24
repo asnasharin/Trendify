@@ -8,7 +8,7 @@ const createToken = (id) => {
 };
 
 // register controller
-export const RegisterController = asyncHandler(
+exports.RegisterController = asyncHandler(
     async (req, res, next) => {
         const { email, password, name } = req.body;
         const existUser = await userModel.findOne({ email });
@@ -39,7 +39,7 @@ export const RegisterController = asyncHandler(
 
 
 // login controller
-export const loginController = asyncHandler(
+exports.loginController = asyncHandler(
     async(req, res, next) => {
         const {email, password} = req.body;
         const user = await userModel.findOne({ email: email });
