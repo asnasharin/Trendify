@@ -1,0 +1,39 @@
+.header_navmenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+  
+      .nav_link {
+        color: #000;
+        font-weight: bold;
+        font-size: 18px;
+        margin-left:20px;
+        padding-left: 20px;
+        &:hover {
+          color:  red;
+        }
+      }
+    }
+
+    .left_section {
+        display: flex;
+        gap: 2rem;
+    .cart_icon {
+      font-size: 24px;
+      color: #333;
+      transition: color 0.3s;
+  
+      &:hover {
+        color: #333;
+      }
+    }
+    }
+  }
+  
