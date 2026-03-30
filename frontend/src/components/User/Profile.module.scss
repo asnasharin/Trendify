@@ -1,0 +1,156 @@
+.rootProfile {
+    padding: 2rem;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  
+    .header-root {
+      text-align: center;
+      margin-bottom: 2rem;
+  
+      .headingProfile {
+        color: #333;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+  
+      .greeting {
+        color: #666;
+        font-size: 1.2rem;
+      }
+    }
+  
+    .profileContainer {
+      display: flex;
+      justify-content: space-between;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+      .leftContainer {
+        width: 40%;
+  
+        .profileHeadingLeft {
+          color: #333;
+          font-size: 1.8rem;
+          margin-bottom: 1rem;
+        }
+  
+        .profileSection {
+          display: flex;
+          align-items: center;
+  
+          .profileAvatar {
+            width: 80px;
+            height: 80px;
+            margin-right: 1.5rem;
+          }
+  
+          .leftDetails {
+            .profileText {
+              font-size: 1.1rem;
+              color: #444;
+              margin-bottom: 0.8rem;
+  
+              .profileSubHeading {
+                font-weight: bold;
+                display: inline-block;
+                margin-right: 0.5rem;
+              }
+            }
+          }
+        }
+  
+        .myOrder {
+          margin-top: 2rem;
+  
+          .profileHeading {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+          }
+  
+          .ordersButton {
+            background-color: #333;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            &:hover {
+              background-color: #222;
+            }
+          }
+        }
+      }
+  
+      .rightContainer {
+        width: 55%;
+  
+        .rightHeadings {
+          margin-bottom: 2rem;
+  
+          .profileHeading {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+          }
+  
+          .profileText2 {
+            color: #555;
+            font-size: 1rem;
+          }
+        }
+  
+        .profileDetails {
+          .details {
+            margin-bottom: 2rem;
+  
+            .profileHeading {
+              color: #333;
+              font-size: 1.5rem;
+              margin-bottom: 1rem;
+            }
+  
+            .profileText {
+              color: #444;
+              font-size: 1.1rem;
+              margin-bottom: 0.8rem;
+            }
+  
+            .profileSubHeading {
+              font-weight: bold;
+            }
+          }
+  
+          .profileButton {
+            background-color: #333;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            &:hover {
+              background-color: #222;
+            }
+          }
+  
+          .manageAccount {
+            margin-top: 2rem;
+  
+            .profileHeading {
+              color: #333;
+              font-size: 1.5rem;
+              margin-bottom: 1rem;
+            }
+  
+            .profileText3 {
+              color: #555;
+              font-size: 0.9rem;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  
