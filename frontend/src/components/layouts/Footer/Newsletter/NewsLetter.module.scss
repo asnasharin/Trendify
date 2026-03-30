@@ -1,0 +1,38 @@
+.newsletterSection {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 40px 20px;
+  }
+  
+  .title {
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+  
+  .subtitle {
+    color: #cccccc;
+    margin-bottom: 15px;
+  }
+  
+  .inputField {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .subscribeButton {
+    background-color: #ed1c24 !important;
+    color: white;
+    font-weight: bold;
+    height: 55px !important;
+  
+    &:hover {
+      background-color: #f44336;
+      color: black;
+    }
+  }
+  
+  .listItem {
+    color: #cccccc;
+  }
+  
