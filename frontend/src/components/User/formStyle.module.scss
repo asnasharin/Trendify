@@ -1,0 +1,96 @@
+.formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5rem;
+    height: auto;
+
+    .form {
+        width: 350px;
+        margin: auto;
+        border-radius: 5px;
+        padding: 2rem;
+        background-color: #fff;
+    }
+
+    .heading {
+        text-align: center;
+        color: #333;
+    }
+
+    .root {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .avatar2 {
+        margin-left: 6px;
+        background-color: #333;
+    }
+    .avatar {
+        margin: 8px auto;
+        background-color: black;
+    }
+
+    .uploadAvatarButton {
+        height: 3rem;
+        background-color: #333;
+        
+        &:hover {
+            background-color: #555;
+        }
+    }
+
+    .input {
+        display: none;
+    }
+
+    .textfield {
+        margin-bottom: 1.5rem;
+    }
+
+    .signupbtn {
+        background-color: #333;
+        margin-top: 1.5rem;
+        
+        &:hover {
+            background-color: #555;
+        }
+    }
+
+    .termsAndConditionsText {
+        font-family: "Roboto";
+        color: #727272;
+        text-align: center;
+        line-height: 17px;
+        padding-left: 4px;
+        font-size: 12px;
+    }
+
+    .privacyText {
+        margin-left: 4px;
+        text-decoration: underline;
+        color: black;
+        font-size: 14px;
+        margin-bottom: 2rem;
+        
+        &:hover {
+            color: #ed1c24;
+        }
+    }
+    .createaccount {
+        font-size: 1rem;
+        font-weight: 500;
+        color: black;
+        padding-left: 6px;
+        cursor: pointer;
+        &:hover {
+          color: #ed1c24;
+          text-decoration: underline;
+        }
+    }    
+}
