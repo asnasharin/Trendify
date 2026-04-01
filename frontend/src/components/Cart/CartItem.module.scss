@@ -1,0 +1,83 @@
+.roots {
+    display: flex;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .media {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .cartContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    width: 100%;
+  }
+  
+  .subtitle1 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .body2 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .itemOldPrice {
+    font-size: 0.9rem;
+    color: #999;
+    margin-left: 10px;
+    text-decoration: line-through;
+  }
+  
+  .cartDeleteIcon {
+    margin-left: 250px !important;
+    color: #d32f2f !important;
+    &:hover {
+      color: #b71c1c;
+    }
+  }
+  
+  .prod_details_additem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  .additem {
+    display: flex;
+    align-items: center;
+  
+    .additem_decrease,
+    .additem_increase {
+      color: #1976d2;
+      &:hover {
+        color: #0d47a1;
+      }
+    }
+  
+    .input {
+      width: 40px;
+      text-align: center;
+      border: none;
+      font-size: 1rem;
+      margin: 0 8px;
+    }
+  }
+  
+  .totalPrice {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
