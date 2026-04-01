@@ -1,0 +1,103 @@
+// .cardRoot {
+//     background-color: #ffffff;
+//     padding: 1.5rem;
+//     border-radius: 8px;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//   }
+  
+//   .cardheader {
+//     display: flex;
+//     align-items: center;
+//     margin-bottom: 1rem;
+//   }
+  
+//   .avatar {
+//     margin-right: 1rem;
+//   }
+  
+//   .subHeadings {
+//     flex-grow: 1;
+//   }
+  
+//   .bodyText {
+//     margin-left: auto;
+//   }
+  
+//   .star {
+//     margin: 0.5rem 0;
+//   }
+  
+//   .title {
+//     font-weight: bold;
+//     margin-bottom: 0.5rem;
+//   }
+  
+//   .commentTxt {
+//     margin-bottom: 1rem;
+//   }
+  
+//   .recommend {
+//     margin-bottom: 1rem;
+//   }
+  
+//   .helpful {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//   }
+  // Card.module.scss
+
+.cardRoot {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .cardheader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .avatar {
+    margin-right: 1rem;
+  }
+  
+  .subHeadings {
+    flex-grow: 1;
+  }
+  
+  .bodyText {
+    margin-left: auto;
+  }
+  
+  .star {
+    margin: 0.5rem 0;
+  }
+  
+  .title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .commentTxt {
+    margin-bottom: 1rem;
+  }
+  
+  .recommend {
+    margin-bottom: 1rem;
+  }
+  
+  .helpful {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  

@@ -1,0 +1,117 @@
+// .reviewRoot {
+//     padding: 2rem;
+//     background-color: #f9f9f9;
+//     border-radius: 8px;
+//     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+//     max-width: 800px;
+//     margin: 0 auto;
+//   }
+  
+//   .reviewHeader {
+//     font-size: 1.8rem;
+//     font-weight: bold;
+//     text-align: center;
+//     margin-bottom: 1.5rem;
+//   }
+  
+//   .submitBtn {
+//     background-color: #1976d2;
+//     color: white;
+//     &:hover {
+//       background-color: #115293;
+//     }
+//   }
+  
+//   .dialog {
+//     .MuiDialogContent-root {
+//       padding: 2rem;
+//     }
+//   }
+  
+//   .topBar {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     margin-top: 2rem;
+//   }
+  
+//   .sortByContainer {
+//     display: flex;
+//     align-items: center;
+//   }
+  
+//   .sortBy {
+//     margin-right: 0.5rem;
+//     font-weight: bold;
+//     color: #555;
+//   }
+  
+//   .select {
+//     min-width: 120px;
+//   }
+  
+//   .ratingGrid {
+//     margin-top: 2rem;
+//   }
+  
+//   .ratingContainer {
+//     display: flex;
+//     align-items: center;
+//     margin-bottom: 1rem;
+//   }
+  
+//   .star {
+//     color: #ffb400;
+//   }
+  
+//   .ratingNumber {
+//     margin-left: 0.5rem;
+//     font-size: 1.2rem;
+//   }
+  
+//   .reviewContainer {
+//     margin-top: 2rem;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1rem;
+//   }
+  
+//   .reviewCard {
+//     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+//     border-radius: 8px;
+//     padding: 1rem;
+//     background-color: white;
+//   }
+
+// ReviewCard.module.scss
+
+.reviewRoot {
+    padding: 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  /* Header and Button container styling */
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .reviewHeader {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .submitBtn {
+    width: 200px; /* Optional: Control button width */
+  }
+  
+  /* Review Card container styling */
+  .reviewCardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns for the cards */
+    gap: 1rem; /* Space between each card */
+    margin-top: 2rem;
+  }
+  
