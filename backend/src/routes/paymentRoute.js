@@ -1,17 +1,11 @@
-const express = require("express");
+const express = require("express")
+const  { paymentController, sendStripeApiKey } = require("../controllers/paymentController.js");
+const { protect } = require("../middlewares/authMiddleware.js");
 
-const {
-  paymentController,
-  sendStripeApiKey,
-} = require("../controllers/paymentController");
+const route = express.Router()
 
-const { protect } = require("../middlewares/authMiddleware");
+route.post("/payment/process", paymentController);
+route.get("/stripeapiKey", sendStripeApiKey)
 
-const route = express.Router();
-
-// protect payment route
-route.post("/payment/process", protect, paymentController);
-
-route.get("/stripeapiKey", sendStripeApiKey);
 
 module.exports = route;

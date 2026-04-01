@@ -1,62 +1,35 @@
 const asyncHandler = require("express-async-handler");
-const productModel = require("../models/productModel");
 const Stripe = require("stripe");
-const dotnev = require("dotenv")
+const dotenv = require("dotenv")
 
-dotnev.config()
+dotenv.config();
+
+if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error("STRIPE_SECRET_KEY is not defined in .env file");
+}
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 exports.paymentController = asyncHandler(async (req, res) => {
-    const { products } = req.body;
+    const { amount } = req.body;
 
-    if (!products || products.length === 0) {
-        return res.status(400).json({
-            success: false,
-            message: "No Products Provided"
+    if (!amount) {
+        res.status(400).json({ success: false, message: "Amount is required." });
+        return;
+    }
+
+    try {
+        const myPayment = await stripe.paymentIntents.create({
+            amount,
+            currency: "inr",
+            metadata: { company: "Ecommerce" },
         });
+
+        res.status(200).json({ success: true, clientSecret: myPayment.client_secret });
+    } catch (error) {
+        console.error("Stripe Error:", error.message);
+        res.status(500).json({ success: false, message: "Payment processing failed." });
     }
-
-    let totalAmount = 0;
-
-    for (let item of products) {
-
-        if (item.quantity <= 0) {
-            return res.status(400).json({
-                success: false,
-                message: "Invalid quantity"
-            });
-        }
-
-        const product = await productModel.findById(item.id);
-
-        if (!product) {
-            return res.status(404).json({
-                success: false,
-                message: "Product not found"
-            });
-        }
-
-        totalAmount += product.price * item.quantity;
-    }
-
-    if (totalAmount <= 0) {
-        return res.status(400).json({
-            success: false,
-            message: "Invalid total amount"
-        });
-    }
-
-    const payment = await stripe.paymentIntents.create({
-        amount: totalAmount * 100,
-        currency: "inr",
-        metadata: { company: "Ecommerce" },
-    });
-
-    res.status(200).json({
-        success: true,
-        clientSecret: payment.client_secret,
-    });
 });
 
 // Controller to send the Stripe API key

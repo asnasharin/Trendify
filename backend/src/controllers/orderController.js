@@ -1,66 +1,46 @@
-const asyncHandler = require("express-async-handler");
-const orderModel = require("../models/orderModel");
-const productModel = require("../models/productModel");
-exports.createOrder = asyncHandler(async (req, res) => {
-  const { shippingInfo, orderItems, paymentInfo } = req.body;
+const asyncHandler = require("express-async-handler")
+const OrderModel = require("../models/orderModel");
+const ProductModel = require("../models/productModel")
 
-  if (!orderItems || orderItems.length === 0) {
-    return res.status(400).json({
-      success: false,
-      message: "No order items",
-    });
-  }
+exports.createOrder = asyncHandler(
+    async (req, res, next) => {
+        const {
+            shippingInfo,
+            orderItems,
+            paymentInfo,
+            itemPrice,
+            taxPrice,
+            shippingPrice,
+            totalPrice,
+            orderStatus
+        } = req.body;
 
-  if (paymentInfo?.status !== "succeeded") {
-    return res.status(400).json({
-      success: false,
-      message: "Payment not completed",
-    });
-  }
+        // create order
+        const order = await OrderModel.create({
+            shippingInfo,
+            orderItems,
+            paymentInfo,
+            itemPrice,
+            taxPrice,
+            shippingPrice,
+            totalPrice,
+            orderStatus,
+            user : req.user._id,
+            paidAt: Date.now(),
+        });
 
-  let itemPrice = 0;
-
-  for (let item of orderItems) {
-    const product = await productModel.findById(item.productId);
-
-    if (!product) {
-      return res.status(404).json({
-        success: false,
-        message: "Product not found",
-      });
+        res.status(200).send({
+            success: true,
+            order,
+        });
     }
-
-    itemPrice += product.price * item.quantity;
-  }
-
-  const taxPrice = itemPrice * 0.1;
-  const shippingPrice = itemPrice > 1000 ? 0 : 50;
-  const totalPrice = itemPrice + taxPrice + shippingPrice;
-
-  const order = await orderModel.create({
-    shippingInfo,
-    orderItems,
-    paymentInfo,
-    itemPrice,
-    taxPrice,
-    shippingPrice,
-    totalPrice,
-    orderStatus: "Processing",
-    user: req.user._id,
-    paidAt: Date.now(),
-  });
-
-  res.status(201).json({
-    success: true,
-    order,
-  });
-});
+)
 
 // get single order
 
 exports.getSingleOrder = asyncHandler (
     async ( req, res, next) => {
-        const order = await orderModel
+        const order = await OrderModel
         .findById(req.params.id)
         .populate({ path: "user", select: "name email"});
         
@@ -79,7 +59,7 @@ exports.getSingleOrder = asyncHandler (
 
 exports.myOrders = asyncHandler (
     async (req, res, next) => {
-        const orders = await orderModel.find({ user: req.user._id}) 
+        const orders = await OrderModel.find({ user: req.user._id}) 
 
         res.status(200).send({
             success: true,
@@ -92,7 +72,7 @@ exports.myOrders = asyncHandler (
 
 exports.getAllOrders = asyncHandler(
     async(req, res, next) => {
-        const orders = await orderModel.find()
+        const orders = await OrderModel.find()
 
         let totalAmount = 0;
         orders.forEach((order) => {
@@ -111,7 +91,7 @@ exports.getAllOrders = asyncHandler(
 
 exports.updateOrder = asyncHandler (
     async (req, res, next) => {
-        const order = await orderModel.findById(req.params.id);
+        const order = await OrderModel.findById(req.params.id);
 
         if(!order) {
             return next(new Error("no order found"), 400);
@@ -157,7 +137,7 @@ async function updateStock(id, quantity) {
 // delete order
 exports.deleteOrder = asyncHandler (
     async (req, res, next) => {
-        const order = await orderModel.findById(req.params.id)
+        const order = await OrderModel.findById(req.params.id)
 
         if(!order) {
             return next(new Error("order not found"), 404);
